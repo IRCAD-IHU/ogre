@@ -18,7 +18,7 @@ file(GLOB HEADER_FILES "${CMAKE_CURRENT_SOURCE_DIR}/include/*.h")
 file(GLOB SOURCE_FILES "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp")
 
 # Add needed definitions 
-add_definitions(-DOGRE_PAGING_EXPORTS ${OGRE_VISIBILITY_FLAGS})
+add_definitions(-DOGRE_PAGING_EXPORTS)
 
 # setup target
 add_library(OgrePaging ${OGRE_COMP_LIB_TYPE} ${HEADER_FILES} ${SOURCE_FILES} ${PLATFORM_HEADER_FILES} ${PLATFORM_SOURCE_FILES})

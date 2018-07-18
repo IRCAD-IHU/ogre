@@ -18,7 +18,19 @@ file(GLOB GLSL_SOURCE "${CMAKE_CURRENT_SOURCE_DIR}/src/GLSL/*.cpp")
 
 set(HEADER_FILES ${HEADER_FILES} ${GLSL_HEADERS})
 
-add_definitions(${OGRE_VISIBILITY_FLAGS})
+include_directories(${GLSUPPORT_INCLUDE_DIR})
+include_directories(
+  BEFORE ${CMAKE_CURRENT_SOURCE_DIR}/include
+)
+include_directories(
+  ${CMAKE_CURRENT_SOURCE_DIR}/include/GLSL
+)
+
+if(NOT APPLE)
+  include_directories(
+    ${OPENGL_INCLUDE_DIR}
+  )
+endif()
 
 if(OGRE_CONFIG_ENABLE_GL_STATE_CACHE_SUPPORT)
   set_source_files_properties(${CMAKE_CURRENT_SOURCE_DIR}/src/OgreGL3PlusStateCacheManager.cpp 
